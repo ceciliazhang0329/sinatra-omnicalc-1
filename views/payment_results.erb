@@ -1,0 +1,37 @@
+<h1>
+  Payment Results
+</h1>
+
+<dl>
+  <dt>
+    APR
+  </dt>
+  <dd>
+    <%= sprintf('%.4f%%', @user_apr * 100) %>  <!-- Formatting APR to 4 decimal places and adding a percentage sign -->
+  </dd>
+
+  <dt>
+    Number of years
+  </dt>
+  <dd>
+    <%= @user_years.to_i %>  <!-- Assuming you want to display years as integers -->
+  </dd>
+
+  <dt>
+    Principal
+  </dt>
+  <dd>
+    <%= sprintf('$%.2f', @user_pv).gsub(/(\d)(?=(\d{3})+\.)/, '\1,') %>
+  </dd>
+
+  <dt>
+    Payment
+  </dt>
+  <dd>
+    <%= sprintf('$%.2f', @result).gsub(/(\d)(?=(\d{3})+\.)/, '\1,') %>
+  </dd>
+</dl>
+
+<a href="/payment/new">
+  Calculate another payment
+</a>
